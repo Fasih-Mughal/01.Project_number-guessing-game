@@ -15,7 +15,7 @@ const delay = (seconds: number) => {
 };
 
 async function welcomeMsg() {
-    const spinner = createSpinner(chalk.yellow("Initializing Number Guessing Game...")).start()
+    const spinner = createSpinner(chalk.yellow("Loading Number Guessing Game...")).start()
     await delay(2000);
     spinner.success();
 
@@ -37,6 +37,7 @@ const validateNumber = (input: any): string | boolean => {
 
 let play: boolean;
 let score: number;
+let playerLife: number;
 
 const getInput = async () => {
     const levels = await inquirer.prompt({
@@ -49,16 +50,19 @@ const getInput = async () => {
     switch (levels.options) {
         case "Easy":
             score = 0;
-            play = true;
+            playerLife = 3;
+            play = true
             await easyLevel();
             break;
         case "Medium":
             score = 0;
+            playerLife = 5;
             play = true;
             await mediumLevel();
             break;
         case "Hard":
             score = 0;
+            playerLife = 10;
             play = true;
             await hardLevel();
             break;
@@ -67,9 +71,10 @@ const getInput = async () => {
 
 
 async function easyLevel() {
-    while (play) {
+    console.log(chalk.rgb(70, 147, 198).bold(`\nYou have 3 chances if you guess wrong you lost 1 life...\n`))
+    do {
         let randomEasy: number = Math.ceil(Math.random() * 3);
-    
+
         const easy = await inquirer.prompt({
             name: "userGuess",
             type: "input",
@@ -85,19 +90,41 @@ async function easyLevel() {
             console.log(chalk.yellow(`\nYour total Score is: ${chalk.rgb(70, 147, 198).bold(score)}\n`));
 
         } else if (easyNum > randomEasy) {
-            console.log(chalk.yellow("\nWrong Guess: ") + chalk.red("Oops! Number is smaller...Try again!!\n"));
-            play = false;
-        } else {
+            console.log(chalk.green("\nWrong Guess: ") + chalk.red("Oops! Number is smaller...Try again!!\n"));
+            playerLife--
+            if (playerLife > 1) {
+                console.log(chalk.yellow(`You have ${playerLife} lifes left!\n`));
+            }
+            else if ((playerLife >= 0)) {
+                console.log(chalk.yellow(`You have ${playerLife} life left!\n`));
+            }
+            if (playerLife < 0) {
+                play = false;
+                console.log(chalk.red("GAME OVER!!\n"));
+            }
+        }
+        else {
             console.log(chalk.yellow("\nWrong Guess: ") + chalk.red("Oops! Number is greater...Try again!!\n"));
-            play = false;
+            playerLife--
+            if (playerLife > 1) {
+                console.log(chalk.yellow(`You have ${playerLife} lifes left!\n`));
+            }
+            else if (playerLife >= 0) {
+                console.log(chalk.yellow(`You have ${playerLife} life left!\n`));
+            }
+            if (playerLife < 0) {
+                play = false;
+                console.log(chalk.red("GAME OVER!!\n"));
+            }
         }
     }
-
+    while (play)
 }
 
 
 async function mediumLevel() {
-    while (play) {
+    console.log(chalk.rgb(70, 147, 198).bold(`\nYou have 5 chances if you guess wrong you lost 1 life...\n`))
+    do {
         let randomMedium: number = Math.ceil(Math.random() * 5);
 
         const medium = await inquirer.prompt({
@@ -116,17 +143,39 @@ async function mediumLevel() {
         }
         else if (mediumNum > randomMedium) {
             console.log(chalk.yellow("\nWrong Guess: ") + chalk.red("Oops! Number is smaller...Try again!!\n"));
-            play = false;
+            playerLife--
+            if (playerLife > 1) {
+                console.log(chalk.yellow(`You have ${playerLife} lifes left!\n`));
+            }
+            else if ((playerLife >= 0)) {
+                console.log(chalk.yellow(`You have ${playerLife} life left!\n`));
+            }
+            if (playerLife < 0) {
+                play = false;
+                console.log(chalk.red("GAME OVER!!\n"));
+            }
         }
         else {
             console.log(chalk.yellow("\nWrong Guess: ") + chalk.red("Oops! Number is greater...Try again!!\n"));
-            play = false;
+            playerLife--
+            if (playerLife > 1) {
+                console.log(chalk.yellow(`You have ${playerLife} lifes left!\n`));
+            }
+            else if (playerLife >= 0) {
+                console.log(chalk.yellow(`You have ${playerLife} life left!\n`));
+            }
+            if (playerLife < 0) {
+                play = false;
+                console.log(chalk.red("GAME OVER!!\n"));
+            }
         }
     }
+    while (play)
 }
 
 async function hardLevel() {
-    while (play) {
+    console.log(chalk.rgb(70, 147, 198).bold(`\nYou have 10 chances if you guess wrong you lost 1 life...\n`))
+    do {
         let randomHard: number = Math.ceil(Math.random() * 10);
 
         const hard = await inquirer.prompt({
@@ -144,13 +193,34 @@ async function hardLevel() {
         }
         else if (hardNum > randomHard) {
             console.log(chalk.yellow("\nWrong Guess: ") + chalk.red("Oops! Number is smaller...Try again!!\n"));
-            play = false;
+            playerLife--
+            if (playerLife > 1) {
+                console.log(chalk.yellow(`You have ${playerLife} lifes left!\n`));
+            }
+            else if ((playerLife >= 0)) {
+                console.log(chalk.yellow(`You have ${playerLife} life left!\n`));
+            }
+            if (playerLife < 0) {
+                play = false;
+                console.log(chalk.red("GAME OVER!!\n"));
+            }
         }
         else {
             console.log(chalk.yellow("\nWrong Guess: ") + chalk.red("Oops! Number is greater...Try again!!\n"));
-            play = false;
+            playerLife--
+            if (playerLife > 1) {
+                console.log(chalk.yellow(`You have ${playerLife} lifes left!\n`));
+            }
+            else if (playerLife >= 0) {
+                console.log(chalk.yellow(`You have ${playerLife} life left!\n`));
+            }
+            if (playerLife < 0) {
+                play = false;
+                console.log(chalk.red("GAME OVER!!\n"));
+            }
         }
     }
+    while (play)
 }
 
 
