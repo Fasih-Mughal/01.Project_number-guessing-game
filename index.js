@@ -60,7 +60,7 @@ const getInput = async () => {
     }
 };
 async function easyLevel() {
-    console.log(chalk.rgb(70, 147, 198).bold(`\nYou have 3 chances if you guess wrong you lost 1 life...\n`));
+    console.log(chalk.rgb(70, 147, 198).bold(`\n NOTE: You have 3 chances if you guess wrong you lost 1 life...\n`));
     do {
         let randomEasy = Math.ceil(Math.random() * 3);
         const easy = await inquirer.prompt({
@@ -106,7 +106,7 @@ async function easyLevel() {
     } while (play);
 }
 async function mediumLevel() {
-    console.log(chalk.rgb(70, 147, 198).bold(`\nYou have 5 chances if you guess wrong you lost 1 life...\n`));
+    console.log(chalk.rgb(70, 147, 198).bold(`\n NOTE: You have 5 chances if you guess wrong you lost 1 life...\n`));
     do {
         let randomMedium = Math.ceil(Math.random() * 5);
         const medium = await inquirer.prompt({
@@ -146,13 +146,13 @@ async function mediumLevel() {
             }
             if (playerLife < 0) {
                 play = false;
-                console.log(chalk.red("GAME OVER!!\n"));
+                console.log(chalk.red.bold("GAME OVER!!\n"));
             }
         }
     } while (play);
 }
 async function hardLevel() {
-    console.log(chalk.rgb(70, 147, 198).bold(`\nYou have 10 chances if you guess wrong you lost 1 life...\n`));
+    console.log(chalk.rgb(70, 147, 198).bold(`\n NOTE: You have 10 chances if you guess wrong you lost 1 life...\n`));
     do {
         let randomHard = Math.ceil(Math.random() * 10);
         const hard = await inquirer.prompt({
@@ -178,7 +178,7 @@ async function hardLevel() {
             }
             if (playerLife < 0) {
                 play = false;
-                console.log(chalk.red("GAME OVER!!\n"));
+                console.log(chalk.red.bold("GAME OVER!!\n"));
             }
         }
         else {
@@ -192,7 +192,7 @@ async function hardLevel() {
             }
             if (playerLife < 0) {
                 play = false;
-                console.log(chalk.red("GAME OVER!!\n"));
+                console.log(chalk.red.bold("GAME OVER!!\n"));
             }
         }
     } while (play);

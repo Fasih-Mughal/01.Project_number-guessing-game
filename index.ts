@@ -71,7 +71,7 @@ const getInput = async () => {
 
 
 async function easyLevel() {
-    console.log(chalk.rgb(70, 147, 198).bold(`\nYou have 3 chances if you guess wrong you lost 1 life...\n`))
+    console.log(chalk.rgb(70, 147, 198).bold(`\n NOTE: You have 3 chances if you guess wrong you lost 1 life...\n`))
     do {
         let randomEasy: number = Math.ceil(Math.random() * 3);
 
@@ -123,7 +123,7 @@ async function easyLevel() {
 
 
 async function mediumLevel() {
-    console.log(chalk.rgb(70, 147, 198).bold(`\nYou have 5 chances if you guess wrong you lost 1 life...\n`))
+    console.log(chalk.rgb(70, 147, 198).bold(`\n NOTE: You have 5 chances if you guess wrong you lost 1 life...\n`))
     do {
         let randomMedium: number = Math.ceil(Math.random() * 5);
 
@@ -166,7 +166,7 @@ async function mediumLevel() {
             }
             if (playerLife < 0) {
                 play = false;
-                console.log(chalk.red("GAME OVER!!\n"));
+                console.log(chalk.red.bold("GAME OVER!!\n"));
             }
         }
     }
@@ -174,7 +174,7 @@ async function mediumLevel() {
 }
 
 async function hardLevel() {
-    console.log(chalk.rgb(70, 147, 198).bold(`\nYou have 10 chances if you guess wrong you lost 1 life...\n`))
+    console.log(chalk.rgb(70, 147, 198).bold(`\n NOTE: You have 10 chances if you guess wrong you lost 1 life...\n`))
     do {
         let randomHard: number = Math.ceil(Math.random() * 10);
 
@@ -202,7 +202,7 @@ async function hardLevel() {
             }
             if (playerLife < 0) {
                 play = false;
-                console.log(chalk.red("GAME OVER!!\n"));
+                console.log(chalk.red.bold("GAME OVER!!\n"));
             }
         }
         else {
@@ -216,7 +216,7 @@ async function hardLevel() {
             }
             if (playerLife < 0) {
                 play = false;
-                console.log(chalk.red("GAME OVER!!\n"));
+                console.log(chalk.red.bold("GAME OVER!!\n"));
             }
         }
     }
