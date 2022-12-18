@@ -71,7 +71,7 @@ const getInput = async () => {
 
 
 async function easyLevel() {
-    console.log(chalk.yellow(`\n NOTE:`)+ chalk.rgb(70, 147, 198).bold(` You have 3 chances if you guess wrong you lost 1 life...\n`))
+    console.log(chalk.yellow(`\n NOTE:`)+ chalk.rgb(70, 147, 198).bold(` You have ${playerLife} more chances. If you guess wrong you lost 1 chance!\n`))
     do {
         let randomEasy: number = Math.ceil(Math.random() * 3);
 
@@ -91,17 +91,16 @@ async function easyLevel() {
 
         } else if (easyNum > randomEasy) {
             console.log(chalk.green("\n Wrong Guess: ") + chalk.redBright("Oops! Number is smaller...Try again!!\n"));
+            playerLife--
+
             if (playerLife > 1) {
-                console.log(chalk.yellow(` You have ${playerLife} more lifes!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chances!\n`));
             }
             else if ((playerLife > 0)) {
-                console.log(chalk.yellow(` You have ${playerLife} more life!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chance!\n`));
             }
             else if(playerLife == 0){
-                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last life!\n`));
-                playerLife--
+                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last chance!\n`));
             }
             else {
                 console.log(" "+ chalk.bgRed(" GAME OVER!! \n"));
@@ -110,17 +109,15 @@ async function easyLevel() {
         }
         else {
             console.log(chalk.yellow("\n Wrong Guess: ") + chalk.redBright("Oops! Number is greater...Try again!!\n"));
+            playerLife--
             if (playerLife > 1) {
-                console.log(chalk.yellow(` You have ${playerLife} more lifes!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chances!\n`));
             }
             else if (playerLife > 0) {
-                console.log(chalk.yellow(` You have ${playerLife} more life!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chance!\n`));
             }
             else if (playerLife == 0){
-                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last life!\n`));
-                playerLife--
+                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last chance!\n`));
             }
             else {
                 console.log(" "+ chalk.bgRed(" GAME OVER!! \n"));
@@ -133,7 +130,7 @@ async function easyLevel() {
 
 
 async function mediumLevel() {
-    console.log(chalk.rgb(70, 147, 198).bold(`\n NOTE: You have 5 chances if you guess wrong you lost 1 life...\n`))
+    console.log(chalk.yellow(`\n NOTE:`)+ chalk.rgb(70, 147, 198).bold(` You have ${playerLife} more chances. If you guess wrong you lost 1 chance!\n`))
     do {
         let randomMedium: number = Math.ceil(Math.random() * 5);
 
@@ -153,17 +150,15 @@ async function mediumLevel() {
         }
         else if (mediumNum > randomMedium) {
             console.log(chalk.yellow("\n Wrong Guess: ") + chalk.redBright("Oops! Number is smaller...Try again!!\n"));
+            playerLife--
             if (playerLife > 1) {
-                console.log(chalk.yellow(` You have ${playerLife} more lifes!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chances!\n`));
             }
             else if ((playerLife > 0)) {
-                console.log(chalk.yellow(` You have ${playerLife} more life!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chance!\n`));
             }
             else if(playerLife == 0){
-                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last life!\n`));
-                playerLife--
+                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last chance!\n`));
             }
             else {
                 console.log(" "+ chalk.bgRed(" GAME OVER!! \n"));
@@ -172,17 +167,15 @@ async function mediumLevel() {
         }
         else {
             console.log(chalk.yellow("\n Wrong Guess: ") + chalk.redBright("Oops! Number is greater...Try again!!\n"));
+            playerLife--
             if (playerLife > 1) {
-                console.log(chalk.yellow(` You have ${playerLife} more lifes!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chances!\n`));
             }
             else if (playerLife > 0) {
-                console.log(chalk.yellow(` You have ${playerLife} more life!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chance!\n`));
             }
             else if(playerLife == 0){
-                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last life!\n`));
-                playerLife--
+                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last chance!\n`));
             }
             else {
                 play = false;
@@ -194,7 +187,7 @@ async function mediumLevel() {
 }
 
 async function hardLevel() {
-    console.log(chalk.rgb(70, 147, 198).bold(`\n NOTE: You have 10 chances if you guess wrong you lost 1 life...\n`))
+    console.log(chalk.yellow(`\n NOTE:`)+ chalk.rgb(70, 147, 198).bold(` You have ${playerLife} more chances. If you guess wrong you lost 1 chance!\n`))
     do {
         let randomHard: number = Math.ceil(Math.random() * 10);
 
@@ -213,17 +206,16 @@ async function hardLevel() {
         }
         else if (hardNum > randomHard) {
             console.log(chalk.yellow("\n Wrong Guess: ") + chalk.redBright("Oops! Number is smaller...Try again!!\n"));
+            playerLife--
+
             if (playerLife > 1) {
-                console.log(chalk.yellow(` You have ${playerLife} more lifes!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chances!\n`));
             }
             else if ((playerLife > 0)) {
-                console.log(chalk.yellow(` You have ${playerLife} more life!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chance!\n`));
             }
             else if(playerLife == 0){
-                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last life!\n`));
-                playerLife--
+                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last chance!\n`));
             }
             else {
                 play = false;
@@ -232,17 +224,16 @@ async function hardLevel() {
         }
         else {
             console.log(chalk.yellow("\n Wrong Guess: ") + chalk.redBright("Oops! Number is greater...Try again!!\n"));
+            playerLife--
+
             if (playerLife > 1) {
-                console.log(chalk.yellow(` You have ${playerLife} more lifes!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chances!\n`));
             }
             else if (playerLife > 0) {
-                console.log(chalk.yellow(` You have ${playerLife} more life!\n`));
-                playerLife--
+                console.log(chalk.yellow(` You have ${playerLife} more chance!\n`));
             }
             else if(playerLife == 0){
-                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last life!\n`));
-                playerLife--
+                console.log(chalk.yellow(`\n NOTE:`)+chalk.red(` This is your last chance!\n`));
             }
             else {
                 play = false;
